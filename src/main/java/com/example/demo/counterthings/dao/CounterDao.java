@@ -4,7 +4,6 @@ import java.util.Collection;
 
 import com.example.demo.counterthings.entity.Counter;
 
-// Generic DAO
 public interface CounterDao {
 	Collection<Counter> findAll();
 
