@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>Counters</title>
+	<style>
+		body {
+			margin: 50px;
+		}
+		table {
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<h1>Counters : test page</h1>
+
+	<h2>Counter List</h2>
+	<br />
+	<table>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Title</th>
+				<th>Count</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:if="${counters.empty}">
+				<td colspan="3">No counter Available</td>
+			</tr>
+			<tr th:each="counter : ${counters}">
+				<td><span th:text="${counter.id}"> id </span></td>
+				<td><span th:text="${counter.title}"> title </span></td>
+				<td><span th:text="${counter.count}"> count </span></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h2>Test REST API</h2>
+	<form method="POST" action="/counter/web/create">
+		Title: <input type="text" placeholder="title" name="title" />
+		<input type="submit" value="Create" />
+	</form>
+	<br />
+	<form method="POST" action="/counter/web/delete">
+		Id: <input type="text" placeholder="id" name="id" />
+		<input type="submit" value="Delete" />
+	</form>
+	<br />
+	<form method="POST" action="/counter/web/exec">
+		Title: <input type="text" placeholder="title" name="title" />
+		Action: <input type="text" placeholder="action" name="action" />
+		<input type="submit" value="Submit" />
+	</form>
+	<br />
+	  <div>
+              <svg>
+                  height="130" width="500">
+                  <defs>
+                      <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                          <stop offset="0%"
+                                style="stop-color:rgb(255,255,0);stop-opacity:1" />
+                          <stop offset="100%"
+                                style="stop-color:rgb(255,0,0);stop-opacity:1" />
+                      </linearGradient>
+                  </defs>
+                  <ellipse cx="100" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+                  <text fill="#ffffff" font-size="45" font-family="Verdana"
+                        x="50" y="86">TP17</text>
+                  Sorry, your browser does not support inline SVG.
+              </svg>
+          </div>
+
+</body>
+</html>
