@@ -2,61 +2,79 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8" />
+	<link href="/css/style.css" rel="stylesheet">
 	<title>Counters</title>
-	<style>
-		body {
-			margin: 50px;
-		}
-		table {
-			border: 1px solid #000;
-		}
-	</style>
 </head>
 <body>
-	<h1>Counters : test page</h1>
-
-	<h2>Counter List</h2>
+	<h1>COUNTERS</h1>
 	<br />
 
-<div class="liste">
+	<div class="liste">
+		
+			<ul th:if="${counters.empty}">
+				<li colspan="3">No counter Available</li>
+			</ul>
+			
+			<ul>
+				<li th:each="counter : ${counters}" class="count">
+					<form method="POST" action="/counter/web/exec" class="form">
+					
+						<span th:text="${counter.id}" class="id"> id </span>
+						<span th:text="${counter.title}" name="title"> title</span>
+						<span th:text="${counter.count}"> count </span>
+						<input type="hidden" name="id" th:value="${counter.id}" />
+						<input class="button" name="button" type="submit" value="-" />
+						<input class="button" name="button" type="submit" value="+" />
+				
+					</form>
+				</li>
+			</ul>
 
-<ul th:if="${counters.empty}">
-<li colspan="3">No counter Available</li>
-</ul>
+	</div>
+	<br/>
 
-<ul>
-<li th:each="counter : ${counters}" class="count">
-<form method="POST" action="/counter/web/exec">
-<span th:text="${counter.id}" class="id"> id </span>
-<span th:text="${counter.title}" name="title"> title</span>
-<span th:text="${counter.count}"> count </span>
-<input type="hidden" name="id" th:value="${counter.id}" />
-<input class="button" name="button" type="submit" value='+'>
-<input class="button" name="button" type="submit" value='-'>
-</form>
-</li>
-</ul>
+	<form method="POST" action="/counter/web/create" class="form">
+		Title: <input type="text" placeholder="title" name="title" class="title"/>
 
-</div>
+		<div class="panel">
+		     <label>Pick a Color</label>
+		        <div>
+		          <input type="radio" name="cor" id="cor1" value="#5484ED"/>
+		          <label for="cor1" class="cor1"></label>
+		          <input type="radio" name="cor" id="cor2" value= "#A4BDFC"/>
+		          <label for="cor2" class="cor2"></label>
+		          <input type="radio" name="cor" id="cor3" value= "#46D6DB"/>
+		          <label for="cor3" class="cor3"></label>
+		          <input type="radio" name="cor" id="cor4" value= "#7AE7BF"/>
+		          <label for="cor4" class="cor4"></label>
+		          <input type="radio" name="cor" id="cor5" value= "#51B749" />
+		          <label for="cor5" class="cor5"></label>
+		          <input type="radio" name="cor" id="cor6" value="#FBD75B"/>
+		          <label for="cor6" class="cor6"></label>
+		          <input type="radio" name="cor" id="cor7" value= "#FFB878"/>
+		          <label for="cor7" class="cor7"></label>
+		          <input type="radio" name="cor" id="cor8" value="#FF887C"  />
+		          <label for="cor8" class="cor8"></label>
+		          <input type="radio" name="cor" id="cor9" value="#DC2127" />
+		          <label for="cor9" class="cor9"></label>
+		          <input type="radio" name="cor" id="cor10" value="#DBADFF"/>
+		          <label for="cor10" class="cor10"></label>
+		          <input type="radio" name="cor" id="cor11" value="#E1E1E1" />
+		          <label for="cor11" class="cor11"></label>
+		        </div>
+		 </div>
+		 
+		<input class="create" type="submit" value="Create" />
+	</form>
+	<br />
+	
+	<form method="POST" action="/counter/web/delete">
+		Id: <input type="text" placeholder="id" name="id" />
+		<input class="delete" type="submit" value="Delete" />
+	</form>
+	<br />
+	
 
-						
-			  <h2>Test REST API</h2>
-              	<form method="POST" action="/counter/web/create">
-              		Title: <input type="text" placeholder="title" name="title" />
-              		<input type="submit" value="Create" />
-              	</form>
-              	<br />
-              	<form method="POST" action="/counter/web/delete">
-              		Id: <input type="text" placeholder="id" name="id" />
-              		<input type="submit" value="Delete" />
-              	</form>
-              	<br />
-              	<form method="POST" action="/counter/web/exec">
-              		Title: <input type="text" placeholder="title" name="title" />
-              		Action: <input type="text" placeholder="action" name="action" />
-              		<input type="submit" value="Submit" />
-              	</form>
-		</tbody>
-
+	
 </body>
 </html>
