@@ -3,6 +3,8 @@ package com.example.demo.counterthings.controllers;
 import java.util.Collection;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,14 +37,48 @@ public class CounterController {
 		return "{\"success\": true}";
 	}
 
-	// GET sur /counter
+	// GET sur /counters
 	@RequestMapping(method = RequestMethod.GET)
 	public Collection<Counter> getAllCounters() {
-		System.out.println("getAllCounters");
+		//System.out.println("getAllCounters");
 		return counterService.getAllCounters();
 	}
+	
+	 @RequestMapping(method = {
+				RequestMethod.GET,
+				RequestMethod.POST
+		},
+			 value="/exec1", produces = "application/json" )
+		public String incrementCounter(HttpServletRequest request) {
+			String title = request.getParameter("title");
+			//System.out.println("TITLE= "+ title);
+			//String action;
+			String action= request.getParameter("action");
 
-	// GET sur /counter/id 
+			/*if (request.getParameter("button").equals("+"))
+				action = "increment";
+			else action = "decrement"; */
+
+
+			Collection<Counter> cc = counterService.getCounterByTitle(title);
+			//System.out.println("!!INCREMENT!!!" + action + "title" + title + " COUNTER:" + cc);
+
+			for (Counter c : cc) {
+				if (action.equals("increment")) {
+					c.increment();
+				}
+				else if (action.equals("decrement")) {
+					c.decrement();
+				}
+			
+				//System.out.println("NEW COUNTER VALUE" + c );
+				counterService.updateCounter(c);
+			}
+			//return "redirect:/counter/web/";
+			return  "{\"success\": true}";
+		}
+
+	// GET sur /counters/id 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public Optional<Counter> getCounterById(@PathVariable("id") int id) {
 		System.out.println("getCounterById");

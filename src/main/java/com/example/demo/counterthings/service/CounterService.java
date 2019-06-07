@@ -42,6 +42,10 @@ public class CounterService {
 	public Collection<Counter> getCounterByTitle(String t) {
 		return (Collection<Counter>) this.counterDao.findByTitle(t);
 	}
+	
+	public void getButton() {
+		
+	}
 
 }
 

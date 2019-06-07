@@ -18,27 +18,30 @@
 	<h2>Counter List</h2>
 	<br />
 
-<div class="liste">
-
-<ul th:if="${counters.empty}">
-<li colspan="3">No counter Available</li>
-</ul>
-
-<ul>
-<li th:each="counter : ${counters}" class="count">
-<form method="POST" action="/counter/web/exec">
-<span th:text="${counter.id}" class="id"> id </span>
-<span th:text="${counter.title}" name="title"> title</span>
-<span th:text="${counter.count}"> count </span>
-<input type="hidden" name="id" th:value="${counter.id}" />
-<input class="button" name="button" type="submit" value='+'>
-<input class="button" name="button" type="submit" value='-'>
-</form>
-</li>
-</ul>
-
-</div>
-
+	<table  class="liste">	
+		<thead>
+			<tr>
+				<th>Id</th>			
+				<th>Title</th>
+				<th>Count</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:if="${counters.empty}">
+				<td colspan="3">No counter Available</td>
+			</tr>
+			<form method="POST" action="/counter/web/exec">
+				<tr th:each="counter : ${counters}">
+			
+					<td><span th:text="${counter.id}"> id </span></td>
+					<td><span th:text="${counter.title}" name="title"> title </span></td>
+					<td><span th:text="${counter.count}"> count </span></td>
+			
+					<td><span class="button" name="button"  type="submit" value="+"/></td>
+								
+				</tr>
+			</form>	
+			</table>
 						
 			  <h2>Test REST API</h2>
               	<form method="POST" action="/counter/web/create">

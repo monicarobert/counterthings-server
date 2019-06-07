@@ -3,6 +3,7 @@ package com.example.demo.counterthings.controllers;
 import java.io.IOException;
 import java.util.Collection;
 
+import javax.persistence.EntityNotFoundException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -44,6 +45,7 @@ public class CounterWebController {
 
 	@GetMapping("/")
 	public String getCounters(Model model) {
+		//System.out.println("CounterService" + counterService.getAllCounters());
 		model.addAttribute("counters", counterService.getAllCounters());
 		return "pages/counterlist";
 	}
@@ -76,29 +78,60 @@ public class CounterWebController {
 		}
 
 	 @RequestMapping(method = {
+			 RequestMethod.GET,
+			 RequestMethod.POST
+			 },
+			 value="/exec" )
+			 public String incrementCounter(HttpServletRequest request) {
+			 int id = Integer.parseInt(request.getParameter("id"));
+			 System.out.println("id sent : "+id);
+			 
+			 String button = request.getParameter("button");
+			 System.out.println("Button:" + button);
+			 
+			 Counter c = counterService.getCounterById(id).orElseThrow(EntityNotFoundException::new);
+			 if (button.equals("+")) // %2B in POST url
+				 c.increment();
+			 else if (button.equals("-"))
+				 c.decrement();
+			 System.out.println("NEW COUNTER VALUE" + c );
+			 counterService.updateCounter(c);
+
+			 return "redirect:/counter/web/";
+			 }
+
+/*	 @RequestMapping(method = {
 				RequestMethod.GET,
 				RequestMethod.POST
 		},
 			 value="/exec" )
 		public String incrementCounter(HttpServletRequest request) {
 			String title = request.getParameter("title");
-			String action = request.getParameter("action");
-			//String count = request.getParameter("count");
-			//map.put("count", count);
+			//System.out.println("TITLE= "+ title);
+			//String action;
+			String action= request.getParameter("action");
+
+			//if (request.getParameter("button").equals("+"))
+			//	action = "increment";
+			//else action = "decrement";
+
 
 			Collection<Counter> cc = counterService.getCounterByTitle(title);
+			//System.out.println("!!INCREMENT!!!" + action + "title" + title + " COUNTER:" + cc);
+
 			for (Counter c : cc) {
-				if (action.equals("increment"))
+				if (action.equals("increment")) {
 					c.increment();
-				else if (action.equals("decrement"))
+				}
+				else if (action.equals("decrement")) {
 					c.decrement();
-				else if (action.equals("reset"))
-					c.reset();
-				System.out.println("NEW COUNTER VALUE" + c );
+				}
+			
+				//System.out.println("NEW COUNTER VALUE" + c );
 				counterService.updateCounter(c);
 			}
 			return "redirect:/counter/web/";
-		}
+		} */
 
 }
 
