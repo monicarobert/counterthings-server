@@ -1,6 +1,8 @@
 package com.example.demo.counterthings.entity;
 
-	import javax.persistence.Entity;
+	import java.awt.Color;
+
+import javax.persistence.Entity;
 	import javax.persistence.GeneratedValue;
 	import javax.persistence.GenerationType;
 	import javax.persistence.Id;
@@ -26,7 +28,8 @@ package com.example.demo.counterthings.entity;
 			this.title= title;
 			this.count = count;
 		}
-		
+	
+
 		public String getTitle() {
 	        return title;
 	    }
@@ -65,6 +68,6 @@ package com.example.demo.counterthings.entity;
 		public String toString() {
 			return "Counter [id=" + id + ", title=" + title + ", count=" + count + "]";
 		}
-		
+
 	}
 

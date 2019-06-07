@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
+
     <!-- Pas géniaux les imports mais de toute façon JSP c'est obsolète ! -->
     <c:import url="/layout/head.jsp">
         <c:param name="title" value="Counters" />

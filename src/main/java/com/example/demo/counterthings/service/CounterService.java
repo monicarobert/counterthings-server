@@ -47,5 +47,10 @@ public class CounterService {
 		
 	}
 
+	public void removeCounterByTitle(String title) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
 
