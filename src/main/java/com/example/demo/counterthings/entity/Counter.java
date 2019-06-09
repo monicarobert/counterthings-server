@@ -5,31 +5,33 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import java.awt.Color;
 
 	@Entity
 	public class Counter {
 		@Id
 		@GeneratedValue(strategy=GenerationType.AUTO)
 		private Long id;
-		
+
 		private String title;
 	    private int count;
 	    //@ManyToOne
 	    //private User user;
-		
+
 		public Counter() {
 		}
-		
+
 		public Counter(long id, String title) {
 			this.title= title;
 			this.id = id;
 		}
-		
+
 		public Counter(String title, int count) {
 			this.title= title;
 			this.count = count;
 		}
-		
+
+
 		public String getTitle() {
 	        return title;
 	    }
@@ -45,7 +47,7 @@ import javax.persistence.ManyToOne;
 	    public void setTitle(String title) {
 	        this.title = title;
 	    }
-	    
+
 	    public Long getId() {
 	        return id;
 	    }
@@ -53,7 +55,7 @@ import javax.persistence.ManyToOne;
 	    public void setId(Long id) {
 	        this.id = id;
 	    }
-	    
+
 	    public void increment() {
 	    	count++;
 	    }
@@ -68,6 +70,5 @@ import javax.persistence.ManyToOne;
 		public String toString() {
 			return "Counter [id=" + id + ", title=" + title + ", count=" + count + "]";
 		}
-		
-	}
 
+	}

@@ -42,5 +42,10 @@ public class CounterService {
 		return (Collection<Counter>) this.counterDao.findByTitle(t);
 	}
 
+	public void removeCounterByTitle(String title) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
 

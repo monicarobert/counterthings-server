@@ -99,39 +99,41 @@ public class CounterWebController {
 
 			 return "redirect:/counter/web/";
 			 }
+	
+	  	
+	 /*	 @RequestMapping(method = {
+		RequestMethod.GET,
+		RequestMethod.POST
+},
+	 value="/exec" )
+public String incrementCounter(HttpServletRequest request) {
+	String title = request.getParameter("title");
+	//System.out.println("TITLE= "+ title);
+	//String action;
+	String action= request.getParameter("action");
 
-/*	 @RequestMapping(method = {
-				RequestMethod.GET,
-				RequestMethod.POST
-		},
-			 value="/exec" )
-		public String incrementCounter(HttpServletRequest request) {
-			String title = request.getParameter("title");
-			//System.out.println("TITLE= "+ title);
-			//String action;
-			String action= request.getParameter("action");
-
-			//if (request.getParameter("button").equals("+"))
-			//	action = "increment";
-			//else action = "decrement";
+	//if (request.getParameter("button").equals("+"))
+	//	action = "increment";
+	//else action = "decrement";
 
 
-			Collection<Counter> cc = counterService.getCounterByTitle(title);
-			//System.out.println("!!INCREMENT!!!" + action + "title" + title + " COUNTER:" + cc);
+	Collection<Counter> cc = counterService.getCounterByTitle(title);
+	//System.out.println("!!INCREMENT!!!" + action + "title" + title + " COUNTER:" + cc);
 
-			for (Counter c : cc) {
-				if (action.equals("increment")) {
-					c.increment();
-				}
-				else if (action.equals("decrement")) {
-					c.decrement();
-				}
-			
-				//System.out.println("NEW COUNTER VALUE" + c );
-				counterService.updateCounter(c);
-			}
-			return "redirect:/counter/web/";
-		} */
+	for (Counter c : cc) {
+		if (action.equals("increment")) {
+			c.increment();
+		}
+		else if (action.equals("decrement")) {
+			c.decrement();
+		}
+	
+		//System.out.println("NEW COUNTER VALUE" + c );
+		counterService.updateCounter(c);
+	}
+	return "redirect:/counter/web/";
+} */
+
 
 }
 
