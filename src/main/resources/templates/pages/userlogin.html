@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+  	<meta charset="UTF-8" />
+    <title>Counters</title>
+    <style>
+      html, body {
+        padding: 0;
+        margin: 0;
+      }
+      .app {
+        width: 80%;
+        min-height: 100vh;
+        margin: auto;
+
+        background: #ddd;
+        padding: 20px;
+      }
+      h1 {
+        color: cornflowerblue;
+        font-size: 45px;
+        font-family: "Droid Sans Mono";
+        text-align: center;
+      }
+      img {
+        margin: auto;
+        display: block;
+      }
+      footer {
+        margin-top: 30px;
+      }
+      label {
+        display: block;
+      }
+
+      form  div {
+        margin-bottom: 15px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <section class="app">
+ 
+ 		<div class="centre" align="center">   
+    <h2 > Enter a username and a password:</h2>
+    <br />
+    <ul th:if="${message}">
+		<h3 th:text="${message}"></h3>
+</ul>
+	
+
+	<br />
+
+		<form action="./login" method="post">
+		    <table style="with: 50%">
+		
+		        <tr>
+		            <td>UserName</td>
+		            <td><input type="text" name="username" class="inputbox" /></td>
+		        </tr>
+		        <tr>
+		            <td>Password</td>
+		            <td><input type="password" name="password" class="inputbox" /></td>
+		        </tr>
+		        </table>
+		    <input type="submit" value="submit" class="submitButton"/></form>
+		</div>
+		
+      
+      <form method="GET" action="/user/web/usercreation">
+		<button class="button" type="submit">Create a new user </button>
+      </form>
+      
+      </section>
+    </body>
+</html>

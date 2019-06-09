@@ -1,9 +1,10 @@
 package com.example.demo.counterthings.entity;
 
-	import javax.persistence.Entity;
-	import javax.persistence.GeneratedValue;
-	import javax.persistence.GenerationType;
-	import javax.persistence.Id;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 	@Entity
 	public class Counter {
@@ -13,6 +14,8 @@ package com.example.demo.counterthings.entity;
 		
 		private String title;
 	    private int count;
+	    //@ManyToOne
+	    //private User user;
 		
 		public Counter() {
 		}
