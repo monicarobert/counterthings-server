@@ -6,6 +6,7 @@ import java.util.Collection;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,9 +23,9 @@ public class User {
 	private String username;
 	private String password;
 	
-	@OneToMany
-	//(mappedBy = "counter", cascade = CascadeType.PERSIST)
-	private List<Counter> lcounters = new ArrayList<>();
+	//@OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+	//(mappedBy = "user", cascade = CascadeType.ALL)
+	//private List<Counter> lcounters = new ArrayList<>();
 	 
 	public User() {
 	}
@@ -83,7 +84,7 @@ public class User {
 	     return "User{" + "nom=" + nom + ", prenom=" + prenom + ", username=" + username + ", password=" + password + '}';
 	 }
 
-		public List<Counter> getLcounters() {
+		/*public List<Counter> getLcounters() {
 			return lcounters;
 		}
 
@@ -92,14 +93,10 @@ public class User {
 		}
 		
 		public User addCounter(Counter c) {
-	        /* User u = c.getUser();
-	        if (u != null) {
-	            u.lcounters.remove(d);
-	        } */
+			System.out.println("ADDCOUNTER " + c + " USER " + this);
 	        this.lcounters.add(c);
-	        // c.setUser(this);
 	        return this;
-	    }
+	    } */
 		
 
 

@@ -5,33 +5,43 @@
 <title>Counters</title>
 </head>
 <body>
-	<h1>Counters</h1>
+	<h1>Thing Counter</h1>
 
-	<h2>CounterList</h2>
+	<h2>Administration</h2>
 	<ul>
-		<li>
+		<li> User pages
+		<ul>
+		<!-- <li>
 			<a href="/counters">show counters in json format (GET in /counters)</a><br />
 			 Counters in JSON format
-		</li>
-		<li>
-			<a href="/counter/web/"> maintenance of counters (GET in /counter/web/) </a><br/>
-	
-		</li>
-		<li>
-			<a href="/users/generate"> Generate users </a><br/>
-			
-		</li>
-		<li>
+			</li> 
+			<li>
 			<a href="/users"> show users is json format (get in /users) </a><br/>			 
-		</li>
-	<li>
-			<a href="/user/web/usercreation"> create users </a><br/>			 
-		</li>	
-				</li>
-	<li>
-			<a href="/user/web/"> users admin (login or create users, delete users)</a><br/>			 
-		</li>	
+			</li>
+		-->
 
+			<li>
+				<a href="/user/web/"> Login </a><br/>			 
+			</li>	
+			
+			
+			
+			<li>
+				<a href="/user/web/usercreation"> Create a user </a><br/>			 
+			</li>	
+		</ul>
+
+		<li> Site admin
+		<ul>
+			<!-- (GET in /user/web/) -->
+			<li>
+				<a href="/user/web/adminusers"> Show/Create/Delete users</a><br/>	
+			</li>
+			<li>
+				<!-- (GET in /counter/web/) -->
+				<a href="/counter/web/allcounterslist"> Show all counters</a><br/>	
+			</li>
+		</ul>
 	</ul>
 </body>
 </html>

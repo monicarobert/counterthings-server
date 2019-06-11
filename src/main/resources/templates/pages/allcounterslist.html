@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>Counters</title>
+</head>
+<body>
+	<h1>Counters</h1>
+	<br />
+
+	<div class="liste">
+	
+		<div> 
+	  		   <h2><span th:if="${user == null}" th:text="'Counters for users '"></span></h2>
+	  		   <h2><span th:if="${user != null}" th:text="'Counters for user '+ ${user.prenom} + ' ' + ${user.nom} + ' ' + ${user.username}"></span></h2>
+	  	</div>
+	
+			<ul th:if="${ccounters.empty}">
+				<li colspan="7">No counters</li>
+			</ul>
+			
+
+				<table th:unless="${ccounters.empty}" frame="box">
+				<tr>
+					<th> Id </th>
+					<th> Title </th>
+					<th> Count </th>
+				</tr>
+				
+				<tr th:each="counter : ${ccounters}" class="count">
+					<td th:text="${counter.id}"/>
+					<td th:text="${counter.title}" />
+					<td th:text="${counter.count}"/>
+ 				</tr>
+			</table>
+			
+ 	</div>
+	<br/></body>
+</html>

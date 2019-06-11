@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.counterthings.dao.UserDaoCrudRepo;
+import com.example.demo.counterthings.entity.Counter;
 import com.example.demo.counterthings.entity.User;
 
 @Service
@@ -22,7 +23,7 @@ public class UserService {
 	private Collection<User> userList = new ArrayList<>();
 
 	public Collection<User> getAllUsers(){
-		System.out.println("GETALLUSERS");
+		//System.out.println("GETALLUSERS");
 		userList=(Collection<User>) this.userDao.findAll();
 		return userList;
 	}
@@ -33,7 +34,15 @@ public class UserService {
 
 	public void removeUserById(int id) {
 		this.userDao.deleteById((long) id);
+	}
+	
+	public void removeUserByUsername(String username) {
+		this.userDao.deleteByUsername(username);
 	} 
+	
+	public void removeUser(User user) {
+		this.userDao.delete(user);
+	}	
 
 	public void updateUser(User user){
 		this.userDao.save(user);
@@ -49,7 +58,7 @@ public class UserService {
 	
     public User checkUser(String username, String pass) {
         for( User user : userList) {
-    		System.out.println(user.getUsername());
+    		//System.out.println(user.getUsername());
     		
             if (user.getUsername() != null && user.getUsername().equals(username) &&
             		user.getPassword() != null && user.getPassword().equals(pass))
@@ -57,5 +66,13 @@ public class UserService {
         }
         return null;
     }
+    
+	/* public User addCounter(User user, Counter c) {
+         User u = c.getUser();
+        if (u != null) {
+            u.lcounters.remove(d);
+        }
+        return user.addCounter(c);
+    } */
     
 }
