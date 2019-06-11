@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>Admin Users</title>
+</head>
+<body>
+	<h1>USERS</h1>
+	<br />
+
+	<div class="liste">
+	
+			<ul th:if="${users.empty}">
+				<li colspan="7">No user</li>
+			</ul>
+			
+<!-- 
+						<input type="hidden" name="id" th:value="${user.id}" />
+ -->
+			<table frame="box">
+				<tr>
+					<th> Last name </th>
+					<th> First name </th>
+					<th> Username </th>
+					<th> Password </th>
+				</tr>
+				
+				<tr th:each="user : ${users}" class="count">
+					<td th:text="${user.nom}" />
+					<td th:text="${user.prenom}"/>
+					<td th:text="${user.username}"/>
+					<td th:text="${user.password}"/>
+						
+					<td>
+						<form method="POST" action="/user/web/delete" class="form">
+						<input type="hidden" name="username" th:value="${user.username}" />
+						<input class="button" name="button" type="submit" value="delete" />		
+						</form>
+					</td>	
+
+					<td>
+						<form method="POST" action="/user/web/details" class="form">
+						<input type="hidden" name="username" th:value="${user.username}" />
+						<input class="button" name="button" type="submit" value="details" />		
+						</form>
+					</td>	
+					
+ 				</tr>
+			</table>
+			
+			<table frame="box" th:if="${ccounters} != null">
+				<tr>
+					<th> Id </th>
+					<th> Title </th>
+					<th> Count </th>
+				</tr>
+				
+				<tr th:each="counter : ${ccounters}" class="count">
+					<td th:text="${counter.prenom}"/>
+					<td th:text="${counter.nom}" />
+					<td th:text="${counter.username}"/>
+ 				</tr>
+			</table>
+			
+ 	</div>
+	<br/></body>
+</html>

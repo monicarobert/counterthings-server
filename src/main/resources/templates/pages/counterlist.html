@@ -10,24 +10,32 @@
 	<br />
 
 	<div class="liste">
+	
+  		   <!--  <div> <span th:if="${user.username} != null"></span> -->
+  		   <div> <span th:if="${user} != null"></span>
+  		    		<h2><span th:text="'WELCOME, '+ ${user.prenom} + ' ' + ${user.nom}"></span></h2> 
+  		   </div>
 		
 			<ul th:if="${counters.empty}">
-				<li colspan="3">No counter Available</li>
+				<li colspan="3" class="count">No counter Available</li>
 			</ul>
 			
 			<ul>
 				<li th:each="counter : ${counters}" class="count">
-					<form method="POST" action="/counter/web/exec" class="form">
-					
-						<span th:text="${counter.id}" class="id"> id </span>
-						<span th:text="${counter.title}" name="title"> title</span>
-						<span th:text="${counter.count}"> count </span>
+						<form method="POST" action="/counter/web/exec" class="form">
 						<input type="hidden" name="id" th:value="${counter.id}" />
+					
 						<input class="button" name="button" type="submit" value="-" />
+
+						<span th:text="${counter.id}" class="id" />
+						<span th:text="${counter.title}"  />
+						<span th:text="${counter.count}" />
+
 						<input class="button" name="button" type="submit" value="+" />
-				
-					</form>
-				</li>
+						<input class="button" name="button" type="submit" value="del" />
+			
+						</form>
+ 				</li>
 			</ul>
 
 	</div>
@@ -35,6 +43,7 @@
 
 	<form method="POST" action="/counter/web/create" class="form">
 		Title: <input type="text" placeholder="title" name="title" class="title"/>
+		
 
 		<div class="panel">
 		     <label>Pick a Color</label>
@@ -62,19 +71,20 @@
 		          <input type="radio" name="cor" id="cor11" value="#E1E1E1" />
 		          <label for="cor11" class="cor11"></label>
 		        </div>
-		 </div>
+ 		</div>
+
 		 
 		<input class="create" type="submit" value="Create" />
 	</form>
 	<br />
 	
+<!-- 
 	<form method="POST" action="/counter/web/delete">
 		Id: <input type="text" placeholder="id" name="id" />
 		<input class="delete" type="submit" value="Delete" />
 	</form>
-	<br />
-	
-
+ -->
+ 	<br />
 	
 </body>
 </html>

@@ -23,7 +23,7 @@ public class CounterController {
 	@Autowired
 	private CounterService counterService;
 	
-	@RequestMapping(value = "/generate", method = RequestMethod.GET, produces = "application/json")
+	/*@RequestMapping(value = "/generate", method = RequestMethod.GET, produces = "application/json")
 	public String generateCounter() {
 		Counter t1 = new Counter("aTest1", 0);
 		Counter t2 = new Counter("zTest2", 0);
@@ -35,7 +35,7 @@ public class CounterController {
 		counterService.insertCounter(t3);
 		counterService.insertCounter(t4);
 		return "{\"success\": true}";
-	}
+	} */
 
 	// GET sur /counters
 	@RequestMapping(method = RequestMethod.GET)

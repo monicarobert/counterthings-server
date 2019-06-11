@@ -8,4 +8,6 @@ public interface UserDaoCrudRepo extends CrudRepository<User, Long>{
 	List<User> findByUsername(String username);
 	User save(User user);
 	void deleteById(Long id);
+	void delete(User user);
+	void deleteByUsername(String username);
 }

@@ -1,9 +1,11 @@
 package com.example.demo.counterthings.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.awt.Color;
 
@@ -12,26 +14,35 @@ import java.awt.Color;
 		@Id
 		@GeneratedValue(strategy=GenerationType.AUTO)
 		private Long id;
-
 		private String title;
 	    private int count;
-	    //@ManyToOne
-	    //private User user;
+	    
+	    @ManyToOne
+	    //(cascade = CascadeType.ALL)
+	    private User user;
+
+		public User getUser() {
+			return user;
+		}
+
+		public void setUser(User user) {
+			this.user = user;
+		}
 
 		public Counter() {
 		}
 
-		public Counter(long id, String title) {
+		 public Counter(long id, String title) {
 			this.title= title;
 			this.id = id;
-		}
+		} 
 
-		public Counter(String title, int count) {
+		public Counter(String title, int count, User user) {
 			this.title= title;
 			this.count = count;
+			this.user = user;
 		}
-
-
+		
 		public String getTitle() {
 	        return title;
 	    }
