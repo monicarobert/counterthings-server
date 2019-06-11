@@ -1,89 +1,84 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="UTF-8" />
-	<link href="/css/style.css" rel="stylesheet">
-	<title>Counters</title>
+<meta charset="UTF-8" />
+<link href="/css/style.css" rel="stylesheet">
+<title>Counters</title>
 </head>
 <body>
 	<h1 class="titre">COUNTERS</h1>
 	<br />
 	<section class="section">
-	<div class="liste">
-	
-  		   <!--  <div> <span th:if="${user.username} != null"></span> -->
-  		   <div> <span th:if="${user} != null"></span>
-  		    		<h2><span th:text="'WELCOME, '+ ${user.prenom} + ' ' + ${user.nom}"></span></h2> 
-  		   </div>
-		
+		<div class="liste">
+
+			<div>
+				<span th:if="${user} != null"></span>
+				<h2>
+					<span th:text="'WELCOME, '+ ${user.prenom} + ' ' + ${user.nom}"></span>
+				</h2>
+			</div>
+
 			<ul th:if="${counters.empty}">
 				<li colspan="3" class="count">No counter Available</li>
 			</ul>
-			
+
 			<ul>
 				<li th:each="counter : ${counters}" class="count">
-						<form method="POST" action="/counter/web/exec" class="form">
-						<input type="hidden" name="id" th:value="${counter.id}" />
-					
-						<input class="button" name="button" type="submit" value="-" />
-
-						<span th:text="${counter.id}" class="id" />
-						<span th:text="${counter.title}"  />
-						<span th:text="${counter.count}" />
-
-						<input class="button" name="button" type="submit" value="+" />
+					<form method="POST" action="/counter/web/exec" class="form" style= "background-color : ${counter.color}">
+						<input type="hidden" name="id" th:value="${counter.id}" /> 
+						<input class="button" name="button" type="submit" value="-" /> 
+						<span th:text="${counter.id}" class="id"></span> 
+						<span th:text="${counter.title}"></span> 
+						<span th:text="${counter.count}"></span>
+						<span th:text="${counter.color}"></span> 
+						<input class="button" name="button" type="submit" value="+" /> 
 						<input class="button" name="button" type="submit" value="del" />
-			
-						</form>
- 				</li>
+
+					</form>
+				</li>
 			</ul>
 
-	</div>
-	<br/>
+		</div>
+		<br />
 
-	<form method="POST" action="/counter/web/create" class="form">
-		Title: <input type="text" placeholder="title" name="title" class="title"/>
-		
+		<form method="POST" action="/counter/web/create" class="form">
+			Title: <input type="text" placeholder="title" name="title"
+				class="title" />
 
-		<div class="panel">
-		     <label>Pick a Color</label>
-		        <div>
-		          <input type="radio" name="cor" id="cor1" value="#5484ED"/>
-		          <label for="cor1" class="cor1"></label>
-		          <input type="radio" name="cor" id="cor2" value= "#A4BDFC"/>
-		          <label for="cor2" class="cor2"></label>
-		          <input type="radio" name="cor" id="cor3" value= "#46D6DB"/>
-		          <label for="cor3" class="cor3"></label>
-		          <input type="radio" name="cor" id="cor4" value= "#7AE7BF"/>
-		          <label for="cor4" class="cor4"></label>
-		          <input type="radio" name="cor" id="cor5" value= "#51B749" />
-		          <label for="cor5" class="cor5"></label>
-		          <input type="radio" name="cor" id="cor6" value="#FBD75B"/>
-		          <label for="cor6" class="cor6"></label>
-		          <input type="radio" name="cor" id="cor7" value= "#FFB878"/>
-		          <label for="cor7" class="cor7"></label>
-		          <input type="radio" name="cor" id="cor8" value="#FF887C"  />
-		          <label for="cor8" class="cor8"></label>
-		          <input type="radio" name="cor" id="cor9" value="#DC2127" />
-		          <label for="cor9" class="cor9"></label>
-		          <input type="radio" name="cor" id="cor10" value="#DBADFF"/>
-		          <label for="cor10" class="cor10"></label>
-		          <input type="radio" name="cor" id="cor11" value="#E1E1E1" />
-		          <label for="cor11" class="cor11"></label>
-		        </div>
- 		</div>
 
-		 
-		<input class="create" type="submit" value="Create" />
-	</form>
-	
-<!-- 
-	<form method="POST" action="/counter/web/delete">
-		Id: <input type="text" placeholder="id" name="id"  class="id"/>
-		<input class="delete" type="submit" value="Delete" />
-	</form>
-	
+			<div class="panel">
+				<label>Pick a Color</label>
+				<div>
+				  <input type="radio" name="colors" id="colors1" value="#5484ED"/>
+		          <label for="colors1" class="colors1"></label>
+		          <input type="radio" name="colors" id="colors2" value= "#A4BDFC"/>
+		          <label for="colors2" class="colors2"></label>
+		          <input type="radio" name="colors" id="colors3" value= "#46D6DB"/>
+		          <label for="colors3" class="colors3"></label>
+		          <input type="radio" name="colors" id="colors4" value= "#7AE7BF"/>
+		          <label for="colors4" class="colors4"></label>
+		          <input type="radio" name="colors" id="colors5" value= "#51B749" />
+		          <label for="colors5" class="colors5"></label>
+		          <input type="radio" name="colors" id="colors6" value="#FBD75B"/>
+		          <label for="colors6" class="colors6"></label>
+		          <input type="radio" name="colors" id="colors7" value= "#FFB878"/>
+		          <label for="colors7" class="colors7"></label>
+		          <input type="radio" name="colors" id="colors8" value="#FF887C"  />
+		          <label for="colors8" class="colors8"></label>
+		          <input type="radio" name="colors" id="colors9" value="#DC2127" />
+		          <label for="colors9" class="colors9"></label>
+		          <input type="radio" name="colors" id="colors10" value="#DBADFF"/>
+		          <label for="colors10" class="colors10"></label>
+		          <input type="radio" name="colors" id="colors11" value="#E1E1E1" />
+		          <label for="colors11" class="colors11"></label>
+				</div>
+			</div>
+
+
+			<input class="create" type="submit" value="Create" />
+		</form>
+
 	</section>
-	
+
 </body>
 </html>
