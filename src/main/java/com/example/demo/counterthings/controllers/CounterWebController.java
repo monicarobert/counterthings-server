@@ -74,6 +74,7 @@ public class CounterWebController {
 		return "pages/allcounterslist";
 	}	
 	
+	// GET ALL COUNTERS
 	@RequestMapping(method = {
 			RequestMethod.GET,
 			RequestMethod.POST
@@ -113,6 +114,7 @@ public class CounterWebController {
 			return "redirect:/counter/web/";
 		}
 */
+	 // INCREMENT, DECREMENT COUNTERS, DELETE COUNTERS
 	 @RequestMapping(method = {
 			 RequestMethod.GET,
 			 RequestMethod.POST

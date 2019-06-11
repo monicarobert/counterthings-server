@@ -67,7 +67,7 @@ public class UserWebController
 	{
 		HttpSession session = request.getSession(true);
         session.setAttribute("USER", user);
-        session.setAttribute("USERSERVICE", userService);
+        //session.setAttribute("USERSERVICE", userService);
     }
 
 	
