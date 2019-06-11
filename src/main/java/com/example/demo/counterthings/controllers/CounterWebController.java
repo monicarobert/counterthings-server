@@ -93,11 +93,13 @@ public class CounterWebController {
 			value="/create" )
 		public String insertCounter(HttpServletRequest request) {
 			 String title = request.getParameter("title");
-			 System.out.println("CREATE COUNTER " + title + user);
-			 Counter c = new Counter(title, 0, user);			 
+			 String color= request.getParameter("colors");
+			 
+			 System.out.println("CREATE COUNTER " + title + user + color);
+			 Counter c = new Counter (title, 0, color, user);			 
 			 counterService.insertCounter(c);
 			 //userService.addCounter(user,c) ;
-			 System.out.println("ADDED COUNTER " + title + user);
+			 System.out.println("ADDED COUNTER " + title + user + color);
 			 
 			 return "redirect:/counter/web/";
 		}
@@ -178,4 +180,5 @@ public String incrementCounter(HttpServletRequest request) {
 
 
 }
+
 

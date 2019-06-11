@@ -2,45 +2,51 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8" />
+<link href="/css/index.css" rel="stylesheet">
 <title>Counters</title>
 </head>
 <body>
 	<h1>Thing Counter</h1>
 
 	<h2>Administration</h2>
-	<ul>
-		<li> User pages
-		<ul>
-		 <li>
-			<a href="/counters">show counters in json format (GET in /counters)</a><br />
-			 Counters in JSON format
-			</li> 
-			<li>
-			<a href="/users"> show users is json format (get in /users) </a><br/>			 
-			</li>	
+	<br/>
 
-			<li>
-				<a href="/user/web/"> Login </a><br/>			 
-			</li>	
-			
-			
-			
-			<li>
-				<a href="/user/web/usercreation"> Create a user </a><br/>			 
-			</li>	
-		</ul>
+	<ul class="liste">
+		<li class="title"> User pages</li>
+		<br/>
 
-		<li> Site admin
-		<ul>
-			<!-- (GET in /user/web/) -->
-			<li>
-				<a href="/user/web/adminusers"> Show/Create/Delete users</a><br/>	
-			</li>
-			<li>
-				<!-- (GET in /counter/web/) -->
-				<a href="/counter/web/allcounterslist"> Show all counters</a><br/>	
-			</li>
-		</ul>
+			<ul class="user">
+			<!-- <li>
+				<a href="/counters">show counters in json format (GET in /counters)</a><br />
+				 Counters in JSON format
+				</li>
+				<li>
+				<a href="/users"> show users is json format (get in /users) </a><br/>
+				</li>
+			-->
+				<li >
+					<a href="/user/web/" class="li"> Login </a><br/>
+				</li>
+
+				<li>
+					<a href="/user/web/usercreation"class="li"> Create a user </a><br/>
+				</li>
+			</ul>
+			<br/>
+
+		<li class="title"> Site admin	</li>
+		<br/>
+
+			<ul class="admin">
+				<!-- (GET in /user/web/) -->
+				<li>
+					<a href="/user/web/adminusers" class="li"> Show/Create/Delete users</a><br/>
+				</li>
+				<li>
+					<!-- (GET in /counter/web/) -->
+					<a href="/counter/web/allcounterslist" class="li"> Show all counters</a><br/>
+				</li>
+			</ul>
 	</ul>
 </body>
 </html>

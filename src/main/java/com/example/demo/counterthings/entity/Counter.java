@@ -1,5 +1,4 @@
 package com.example.demo.counterthings.entity;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,7 +6,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import java.awt.Color;
 
 	@Entity
 	public class Counter {
@@ -16,8 +14,69 @@ import java.awt.Color;
 		private Long id;
 		private String title;
 	    private int count;
+	    private String color;
 	    
-	    @ManyToOne
+	    public Counter(Long id, String title, String color) {
+			super();
+			this.id = id;
+			this.title = title;
+			this.color = color;
+		}
+
+		public Counter(String title, String color) {
+			super();
+			this.title = title;
+			this.color = color;
+		}
+
+		public Counter(String title, String color, int count) {
+			super();
+			this.title = title;
+			this.count = count;
+			this.color = color;
+		}
+
+		public Counter(Long id, String title, String color, User user) {
+			super();
+			this.id = id;
+			this.title = title;
+			this.color = color;
+			this.user = user;
+		}
+
+		public Counter(String title, int count, String color, User user) {
+			super();
+			this.title = title;
+			this.count = count;
+			this.color = color;
+			this.user = user;
+		}
+
+		public Counter(String title, String color, User user) {
+			super();
+			this.title = title;
+			this.color = color;
+			this.user = user;
+		}
+
+		public Counter(Long id, String title, int count, String color, User user) {
+			super();
+			this.id = id;
+			this.title = title;
+			this.count = count;
+			this.color = color;
+			this.user = user;
+		}
+
+		public String getColor() {
+			return color;
+		}
+
+		public void setColor(String color) {
+			this.color = color;
+		}
+
+		@ManyToOne
 	    //(cascade = CascadeType.ALL)
 	    private User user;
 
@@ -42,7 +101,8 @@ import java.awt.Color;
 			this.count = count;
 			this.user = user;
 		}
-		
+	
+
 		public String getTitle() {
 	        return title;
 	    }
