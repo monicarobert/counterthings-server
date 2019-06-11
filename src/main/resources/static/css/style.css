@@ -1,29 +1,29 @@
-*{
+body{
 	text-align: center;
 	font-family:"Courier New", Courier, monospace;
 	background-color: #323232;
 	color:#FDF5E6;	
 }
+.section{
+	flex-direction:column;
+	display:block;
+}
 .form{
-	justify-content:center;
 	padding-top:10px;
 	padding-bottom:10px;
-	border-radius: 1em;
-	width:100%;
-	display: inline-block; 
+	border-radius: 4em;
+	margin-left:420px;
+	margin-right:440px;
 	border:1px solid #ccc;
-	box-shadow:1px 1px 3px #999;
-	text-align:center;
+	box-shadow:1px 1px 3px #999;	
 }
 .panel{
 	padding-top:20px;
 	padding-bottom:10px;
 }
-.create{
-	padding-top:20px;
-	padding-bottom:10px;
-}
 .create, .delete{
+	padding-top:40px;
+	padding-bottom:10px;
 	font-weight:italic;
 	padding:6px 0 6px 0;
 	font:bold 13px Arial;
@@ -35,6 +35,9 @@
 	box-shadow:1px 1px 3px #999;
 	font-family:"Courier New", Courier, monospace;
 	background-color:#FFD717;
+}
+.delete{
+	margin-top:60px;
 }
 .create:hover, .delete:hover, .button:hover{
 	color:#0066CC;
@@ -50,7 +53,7 @@
 	border:1px solid #ccc;
 	box-shadow:1px 1px 3px #999;
 }
-h1{
+.titre{
 	font-size: 48px;
   	font-family:"Courier New", Courier, monospace;
   	color:#FDF5E6;
@@ -59,6 +62,7 @@ h1{
   	text-align:center;
   	display:inline;
   	line-height:150px;
+  	margin-left:30px;
 }
 .liste{
 	font-family:"Courier New", Courier, monospace;
@@ -69,10 +73,10 @@ h1{
 
 }
 .count{
-	border-radius: 1em;
- 	box-shadow: #656565 0.2em;
  	list-style: none;
  	padding:5px;
+	flex-direction: column;
+	align-content: space-between;
 }
 table {
  	border-width:1px; 
@@ -165,4 +169,46 @@ label[class*="cor"] {
 .cor11 {
   background-color: #E1E1E1;
   border-color: #E1E1E1;
+}
+@media screen and (max-width: 1024px){
+    *{
+     	font-size: 60px;
+     	text-align:center;
+    }
+    .section{
+    	display:block;
+    }
+    .titre{
+    	padding-top:20px;
+   		font-size: 200px;
+   		margin-left:200px;
+   		margin-top:15vh;
+   	
+   	}
+   	.create, .delete {
+   		font-size: 60px;
+   		border-radius: 3em;
+   		text-align:center;
+   		width:30%;
+  
+   	}
+   	.button{
+   		font-size:60px;
+   		border-radius: 1.5em;
+  		width:100px;
+   	}
+    .form{
+		padding-top:20px;
+		padding-bottom:50px;
+		margin-top:40px;
+		border-radius: 4em;
+		border:1px solid #ccc;
+		box-shadow:1px 1px 3px #999;
+		box-sizing: border-box;	
+		width:100%;
+	}
+	.delete, .id{
+		margin-top:50px;
+	}
+	
 }

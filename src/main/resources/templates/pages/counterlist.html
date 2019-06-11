@@ -6,9 +6,9 @@
 	<title>Counters</title>
 </head>
 <body>
-	<h1>COUNTERS</h1>
+	<h1 class="titre">COUNTERS</h1>
 	<br />
-
+	<section class="section">
 	<div class="liste">
 		
 			<ul th:if="${counters.empty}">
@@ -66,15 +66,13 @@
 		 
 		<input class="create" type="submit" value="Create" />
 	</form>
-	<br />
 	
 	<form method="POST" action="/counter/web/delete">
-		Id: <input type="text" placeholder="id" name="id" />
+		Id: <input type="text" placeholder="id" name="id"  class="id"/>
 		<input class="delete" type="submit" value="Delete" />
 	</form>
-	<br />
 	
-
+	</section>
 	
 </body>
 </html>
