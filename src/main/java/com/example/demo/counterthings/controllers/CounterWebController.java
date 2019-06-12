@@ -30,7 +30,7 @@ import com.example.demo.counterthings.service.CounterService;
 import com.example.demo.counterthings.service.UserService;
 
 @Controller
-@RequestMapping("/counter/web")
+@RequestMapping("/counter")
 public class CounterWebController {
 	
 	@Autowired
@@ -86,6 +86,7 @@ public class CounterWebController {
 		return "pages/allcounterslist";
 	}
 	
+	// CREATE COUNTERS
 	@RequestMapping(method = {
 			RequestMethod.GET,
 			RequestMethod.POST
@@ -93,15 +94,14 @@ public class CounterWebController {
 			value="/create" )
 		public String insertCounter(HttpServletRequest request) {
 			 String title = request.getParameter("title");
-			 String color= request.getParameter("colors");
-			 
-			 System.out.println("CREATE COUNTER " + title + user + color);
-			 Counter c = new Counter (title, 0, color, user);			 
+			 String color = request.getParameter("colors");
+			 System.out.println("CREATE COUNTER " + title + user);
+			 Counter c = new Counter(title, 0, color, user);			 
 			 counterService.insertCounter(c);
 			 //userService.addCounter(user,c) ;
 			 System.out.println("ADDED COUNTER " + title + user + color);
 			 
-			 return "redirect:/counter/web/";
+			 return "redirect:/counter/";
 		}
 
 /*	@RequestMapping(method = {
@@ -113,10 +113,11 @@ public class CounterWebController {
 			String sId = request.getParameter("id");
 			int id = Integer.parseInt(sId);
 			counterService.removeCounterById(id);
-			return "redirect:/counter/web/";
+			return "redirect:/counter/";
 		}
 */
 	 // INCREMENT, DECREMENT COUNTERS, DELETE COUNTERS
+	
 	 @RequestMapping(method = {
 			 RequestMethod.GET,
 			 RequestMethod.POST
@@ -136,12 +137,12 @@ public class CounterWebController {
 				 c.decrement();
 			 else if (button.equals("del")) {
 					counterService.removeCounterById(id);
-					return "redirect:/counter/web/";
+					return "redirect:/counter/";
 			 }
 			 // System.out.println("NEW COUNTER VALUE" + c );
 			 counterService.updateCounter(c);
 
-			 return "redirect:/counter/web/";
+			 return "redirect:/counter/";
 			 }
 	
 	  	
@@ -175,10 +176,9 @@ public String incrementCounter(HttpServletRequest request) {
 		//System.out.println("NEW COUNTER VALUE" + c );
 		counterService.updateCounter(c);
 	}
-	return "redirect:/counter/web/";
+	return "redirect:/counter/";
 } */
 
 
 }
-
 

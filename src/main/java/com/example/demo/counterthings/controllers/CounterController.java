@@ -74,7 +74,6 @@ public class CounterController {
 				//System.out.println("NEW COUNTER VALUE" + c );
 				counterService.updateCounter(c);
 			}
-			//return "redirect:/counter/web/";
 			return  "{\"success\": true}";
 		}
 

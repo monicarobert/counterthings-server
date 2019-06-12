@@ -32,14 +32,14 @@
 					<td th:text="${user.password}"/>
 						
 					<td>
-						<form method="POST" action="/user/web/delete" class="form">
+						<form method="POST" action="/user/deleteuser" class="form">
 						<input type="hidden" name="username" th:value="${user.username}" />
 						<input class="button" name="button" type="submit" value="delete" />		
 						</form>
 					</td>	
 
 					<td>
-						<form method="POST" action="/user/web/details" class="form">
+						<form method="POST" action="/user/details" class="form">
 						<input type="hidden" name="username" th:value="${user.username}" />
 						<input class="button" name="button" type="submit" value="details" />		
 						</form>

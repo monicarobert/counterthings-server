@@ -23,14 +23,14 @@
 			</ul>
 
 			<ul>
-				<li th:each="counter : ${counters}" class="count">
-					<form method="POST" action="/counter/web/exec" class="form" style= "background-color : ${counter.color}">
+				<li th:each="counter : ${counters}" class="count" style=>
+					<form method="POST" action="/counter/web/exec" class="form" th:styleappend="'background-color:'+ ${counter.color}+';'">
 						<input type="hidden" name="id" th:value="${counter.id}" /> 
 						<input class="button" name="button" type="submit" value="-" /> 
 						<span th:text="${counter.id}" class="id"></span> 
 						<span th:text="${counter.title}"></span> 
 						<span th:text="${counter.count}"></span>
-						<span th:text="${counter.color}"></span> 
+					
 						<input class="button" name="button" type="submit" value="+" /> 
 						<input class="button" name="button" type="submit" value="del" />
 
@@ -41,7 +41,7 @@
 		</div>
 		<br />
 
-		<form method="POST" action="/counter/web/create" class="form">
+		<form method="POST" action="/counter/create" class="form">
 			Title: <input type="text" placeholder="title" name="title"
 				class="title" />
 

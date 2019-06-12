@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 		private Long id;
 		private String title;
 	    private int count;
-	    private String color;
+	    private String color = "#FBD75B";
 	    
 	    public Counter(Long id, String title, String color) {
 			super();
