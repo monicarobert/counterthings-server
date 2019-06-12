@@ -80,5 +80,23 @@
 
 	</section>
 
+    <script th:inline="javascript">
+ 	var button = document.getElementById('speak');
+    var speechMsgInput = document.getElementById('speech-msg');
+    function speak(text) {
+    	// Create a new instance of SpeechSynthesisUtterance.
+    	var msg = new SpeechSynthesisUtterance();
+    	// Set the text.
+    	msg.text = text;
+    	// Queue this utterance.
+    	window.speechSynthesis.speak(msg);
+    }
+    
+    // Set up an event listener for when the 'speak' button is clicked.
+    button.addEventListener('click',
+    		function(e) { if (speechMsgInput.value.length > 0) { speak(speechMsgInput.value); }}
+    );
+	</script>
+	
 </body>
 </html>
