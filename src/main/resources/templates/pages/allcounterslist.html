@@ -27,7 +27,7 @@
 					<th> Count </th>
 				</tr>
 				
-				<tr th:each="counter : ${ccounters}" class="count">
+				<tr th:each="counter : ${ccounters}" class="count" th:styleappend= "'background-color : ' + ${counter.color}+';'">
 					<td th:text="${counter.id}"/>
 					<td th:text="${counter.title}" />
 					<td th:text="${counter.count}"/>
