@@ -2,9 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8" />
+		
 	<title>Counters</title>
 </head>
 <body>
+  
 	<h1>Counters</h1>
 	<br />
 
@@ -26,7 +28,7 @@
 					<th> Title </th>
 					<th> Count </th>
 				</tr>
-				
+			
 				<tr th:each="counter : ${ccounters}" class="count" th:styleappend= "'background-color : ' + ${counter.color}+';'">
 					<td th:text="${counter.id}"/>
 					<td th:text="${counter.title}" />
@@ -36,5 +38,7 @@
 			</table>
 			
  	</div>
-	<br/></body>
+	<br/>
+</body>
+	
 </html>

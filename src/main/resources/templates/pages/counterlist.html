@@ -19,10 +19,10 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Déconnexion</a>
+        <a class="nav-link" href="#">Log out</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">A propos</a>
+        <a class="nav-link" href="#">About us</a>
       </li>
       <li class="nav-item dropdown">
         <!-- bloc menu déroulant -->
@@ -38,7 +38,7 @@
   </nav>
   <br/>
   
-  <section class="container-fluid">
+  <section class="container">
 		<div class="liste">
 
 			<div>
@@ -54,7 +54,7 @@
 
 			<ul>
 				<li th:each="counter : ${counters}" class="count">
-					<form method="POST" action="/counter/web/exec" class="form" style="overflow-x:auto;" th:styleappend= "'background-color : ' + ${counter.color}+';'">
+					<form method="POST" action="/counter/exec" class="form" style="overflow-x:auto;" th:styleappend= "'background-color : ' + ${counter.color}+';'">
 						<input type="hidden" name="id" th:value="${counter.id}" /> 
 						<input class="button" name="button" type="submit" value="-" /> 
 						<span th:text="${counter.id}" class="id"></span> 
@@ -71,7 +71,7 @@
 		</div>
 		<br />
 
-		<form method="POST" action="/counter/web/create" class="form">
+		<form method="POST" action="/counter/create" class="form">
 			Title: <input type="text" placeholder="title" name="title"
 				class="title" />
 

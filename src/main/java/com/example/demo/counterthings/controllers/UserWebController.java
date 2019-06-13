@@ -24,7 +24,7 @@ import com.example.demo.counterthings.service.CounterService;
 import com.example.demo.counterthings.service.UserService;
 
 @Controller
-@RequestMapping("/user/web")
+@RequestMapping("/user")
 public class UserWebController
 {
 	@Autowired
@@ -48,26 +48,29 @@ public class UserWebController
     	User user = userService.checkUser(username, password);
     	if (user != null)
     	{  
+    		if ( user.getUsername().equals("admin@admin"))
+    			return "redirect:/user/adminusers";
+    
     		successLogin(request, response, user);
         	model.addAttribute(user);
     		redirAttrs.addFlashAttribute("user", user);
-    		return "redirect:/counter/web/";
+    		return "redirect:/counter/";
     	}
     	else
     	{
     		model.addAttribute("message", "Username or Password not recognized!");
     		redirAttrs.addFlashAttribute("message", "Username or Password not recognized!");
-			//response.sendRedirect(request.getContextPath() + "/user/web/");
-    		return "redirect:/user/web/";
+			//response.sendRedirect(request.getContextPath() + "/user/");
+    		return "redirect:/user/";
 		}
 	}
 	
-	// SUCCESLOGIN PROCEDURE -> SET SESSION WITH USER ATTRIBUTE
+	// SUCCESSLOGIN PROCEDURE -> SET SESSION WITH USER ATTRIBUTE
 	public void successLogin(HttpServletRequest request, HttpServletResponse response, User user) throws IOException
 	{
 		HttpSession session = request.getSession(true);
         session.setAttribute("USER", user);
-        session.setAttribute("USERSERVICE", userService);
+        //session.setAttribute("USERSERVICE", userService);
     }
 
 	
@@ -88,8 +91,8 @@ public class UserWebController
     	String password = request.getParameter("password");
     	User u1= new User(nom, prenom, username, password);
     	userService.insertUser(u1);
-		response.sendRedirect(request.getContextPath() + "/user/web/");
-    	//return "redirect:/user/web";
+		response.sendRedirect(request.getContextPath() + "/user/");
+    	//return "redirect:/user";
 	}
 		
 
@@ -103,7 +106,7 @@ public class UserWebController
 	}
 
 	// DELETE USER
-	@RequestMapping(method = { RequestMethod.GET, RequestMethod.POST }, value="/delete" )
+	@RequestMapping(method = { RequestMethod.GET, RequestMethod.POST }, value="/deleteuser" )
 	public String deleteUser(HttpServletRequest request, HttpServletResponse response, RedirectAttributes redirAttrs, Model model) throws Exception
 	{
    		String username = request.getParameter("username");
@@ -114,7 +117,7 @@ public class UserWebController
    			break;
    		}
    		/// userService.removeUserByUsername(username);
-    	return "redirect:/user/web/adminusers";
+    	return "redirect:/user/adminusers";
 	} 
 
 	//SHOW COUNTERS FOR USER
@@ -132,7 +135,7 @@ public class UserWebController
    		}
 		
 		// System.out.println("SHOWING USER DETAILS FOR " + username);
-		return "redirect:/counter/web/getcountersbyuser";
+		return "redirect:/counter/getcountersbyuser";
 
 	}
 	
@@ -140,7 +143,7 @@ public class UserWebController
 	@RequestMapping(method = { RequestMethod.GET, RequestMethod.POST }, value="/showallcounters" )
 	public String showAllCounters(HttpServletRequest request, HttpServletResponse response, RedirectAttributes redirAttrs, Model model) throws Exception
 	{
-		return "redirect:/counter/web/allcounterslist";
+		return "redirect:/counter/allcounterslist";
 
 	}	
 	/*
