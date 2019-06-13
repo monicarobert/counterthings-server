@@ -1,0 +1,14 @@
+body{	
+	background-color: #3A5A98;
+	color:white;	
+	font-family:"Courier New", Courier, monospace;
+	text-align:center;
+}
+.user{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+h1{
+	font-size:70px;
+}
