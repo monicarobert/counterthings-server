@@ -29,7 +29,9 @@ public class UserWebController
 {
 	@Autowired
 	private UserService userService;
+	@Autowired	
 	private CounterService counterService;
+	//private List<Counter> lcounters = new ArrayList<Counter>();
 
 	// USER LOGIN FORM
 	@GetMapping("/")
@@ -96,12 +98,14 @@ public class UserWebController
 	}
 		
 
-	// SHOW ALL USERS
+	// SHOW ALL USERS AND COUNTERS
 	@GetMapping("/adminusers")
 	public String adminUsers(Model model)
 	{
 		Collection<User> users = userService.getAllUsers();
 		model.addAttribute("users", users);
+		Collection<Counter> ccounters = counterService.getAllCounters();
+		model.addAttribute("ccounters", ccounters);
 		return "pages/userslist";
 	}
 
@@ -112,7 +116,10 @@ public class UserWebController
    		String username = request.getParameter("username");
    		Collection<User> cuser = userService.getUserByUsername(username);
    		for (User user : cuser) {
-   			System.out.println("DELETING USER " + username); 
+   			System.out.println("DELETING USER " + username);   			
+   			Collection<Counter> cc = counterService.getCountersForUser(user);
+   			for (Counter c : cc)
+   				counterService.removeCounterById(c.getId());
    			userService.removeUser(user);
    			break;
    		}

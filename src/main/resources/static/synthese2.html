@@ -7,47 +7,62 @@
 
 </head>
 
-<body>
-	<h1>Thing Counter</h1>
+	<body>
+		<h1>Thing Counter</h1>
+		<h1 id="gros_titre">Les évènements</h1>
+	    <p>Cliquez-moi, cliquez-moi !</p>
+	    <p>Un deuxième <strong>paragraphe</strong></p>
 	
-		<button id="speak">Speak</button>
+	    <button id="speak">Speak</button>
+	    <input type="text" name="speech-msg-name" id="speech-msg" x-webkit-speech>
+	</body>
 	
-    <div>	
-   <script th:inline="javascript">
-    /* var msg = new SpeechSynthesisUtterance();
-    msg.text = "Bonjour";
-    msg.voice = speechSynthesis.getVoices().filter(function(voice) { return voice.name == voiceSelect.value; })[0];
-    window.speechSynthesis.speak(msg);   */
+    <script th:inline="javascript">
 
+ 	var button = document.getElementById('speak');
+    var speechMsgInput = document.getElementById('speech-msg');
 
-    /* const ut = new SpeechSynthesisUtterance('No warning should arise');
-    speechSynthesis.speak(ut);
-    speechSynthesis.speak(new SpeechSynthesisUtterance('Bonjour'));
-    speechSynthesis.speak(new SpeechSynthesisUtterance('Bonjour')) */
-    
-    var text='Bonjour';
-	<button id="speak">Speak</button>
-	
     function speak(text) {
-  // Create a new instance of SpeechSynthesisUtterance.
-	var msg = new SpeechSynthesisUtterance();
-  
-  // Set the text.
-	msg.text = text;
-  
-  // Set the attributes.
-	//msg.volume = parseFloat(volumeInput.value);
-	//msg.rate = parseFloat(rateInput.value);
-	//msg.pitch = parseFloat(pitchInput.value);
-  
-  // If a voice has been selected, find the voice and set the
-  // utterance instance's voice attribute.
-	//if (voiceSelect.value) {
-		//msg.voice = speechSynthesis.getVoices().filter(function(voice) { return voice.name == voiceSelect.value; })[0];
-	//}
+    	// Create a new instance of SpeechSynthesisUtterance.
+    	var msg = new SpeechSynthesisUtterance();
+    	// Set the text.
+    	msg.text = text;
+    	// Queue this utterance.
+    	window.speechSynthesis.speak(msg);
     }
-  	</script>
-      </div>
- 
+    
+    // Set up an event listener for when the 'speak' button is clicked.
+    button.addEventListener('click',
+    		function(e) { if (speechMsgInput.value.length > 0) { speak(speechMsgInput.value); } }
+    );
+    
+	/*
+	// Fetch the list of voices and populate the voice options.
+    function loadVoices() {
+      // Fetch the available voices.
+    	var voices = speechSynthesis.getVoices();
+      
+      // Loop through each of the voices.
+    	voices.forEach(function(voice, i) {
+        // Create a new option element.
+    		var option = document.createElement('option');
+        
+        // Set the options value and text.
+    		option.value = voice.name;
+    		option.innerHTML = voice.name;
+    		  
+        // Add the option to the voice selector.
+    		//voiceSelect.appendChild(option);
+    	});
+    }
+    // Execute loadVoices.
+    loadVoices();
+    // Chrome loads voices asynchronously.
+    window.speechSynthesis.onvoiceschanged = function(e) {
+    	loadVoices();
+    };
+	*/
+    </script>
+
   </body>
 </html>

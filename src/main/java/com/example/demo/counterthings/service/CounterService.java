@@ -36,6 +36,10 @@ public class CounterService {
 		this.counterDao.deleteById((long) id);
 	} 
 
+	public void removeCounterById(long id) {
+		this.counterDao.deleteById((long) id);
+	} 
+	
 	public void updateCounter(Counter counter){
 		this.counterDao.save(counter);
 	}

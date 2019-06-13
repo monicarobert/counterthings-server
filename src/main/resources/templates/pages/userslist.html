@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-dark bg-dark">
+<nav class="navbar-expand{-sm|-md|-lg|-xl} navbar-dark bg-dark">
   	<a class="navbar-brand" href="#">Counters</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -29,7 +29,7 @@
         <a class="nav-link" href="#">Statistics</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#">Log out</a>
+        <a class="nav-link" href="#">Logout</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">About us</a>
@@ -60,7 +60,7 @@
 <!-- 
 						<input type="hidden" name="id" th:value="${user.id}" />
  -->
-			<table frame="box" class="table table-striped table-user">
+			<table frame="box" class="table-responsive{-sm|-md|-lg|-xl} table-striped table-user">
 				<tr>
 					<th> Last name </th>
 					<th> First name </th>
@@ -88,11 +88,39 @@
 						<input type="hidden" name="username" th:value="${user.username}" />
 						<input class="button" name="button" type="submit" value="counters" />		
 						</form>
-					</td>	
-					
+					</td>						
  				</tr>
 			</table>
+		</div>
+		<br/>
+		
+	<div class="container">
+		
+		<br/>
+		<div> 
+	  		  <h1>COUNTERS FOR USERS</h1>
+	  	</div>
+		<br/>
+			<ul th:if="${ccounters.empty}">
+				<li colspan="7">No counters</li>
+			</ul>
 			
+				<table th:unless="${ccounters.empty}" frame="box" class="table-responsive{-sm|-md|-lg|-xl} table-striped table-counters">
+				<tr>
+					<th> Id </th>
+					<th> Title </th>
+					<th> Count </th>
+					<th> Color </th>
+				</tr>
+				
+				<tr th:each="counter : ${ccounters}" class="count" th:styleappend="'background-color:'+ ${counter.color}+';'">
+					<td th:text="${counter.id}"/>
+					<td th:text="${counter.title}" />
+					<td th:text="${counter.count}"/>
+					<td th:text="${counter.color}"/>
+ 				</tr>
+			</table>
+					
  	</div>
 	<br/>
 	
@@ -102,4 +130,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
+
 </html>
