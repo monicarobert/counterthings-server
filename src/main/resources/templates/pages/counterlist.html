@@ -11,6 +11,7 @@
 	<section class="section">
 		<div class="liste">
 
+
 			<div>
 				<span th:if="${user} != null"></span>
 				<h2>
@@ -23,23 +24,51 @@
 			</ul>
 
 			<ul>
-				<li th:each="counter : ${counters}" class="count" style=>
-					<form method="POST" action="/counter/web/exec" class="form" th:styleappend="'background-color:'+ ${counter.color}+';'">
+				<li th:each="counter : ${counters}" class="count" >
+					<form method="POST" action="/counter/exec" class="form" th:styleappend="'background-color:'+ ${counter.color}+';'" >
 						<input type="hidden" name="id" th:value="${counter.id}" /> 
-						<input class="button" name="button" type="submit" value="-" /> 
-						<span th:text="${counter.id}" class="id"></span> 
-						<span th:text="${counter.title}"></span> 
-						<span th:text="${counter.count}"></span>
-					
-						<input class="button" name="button" type="submit" value="+" /> 
-						<input class="button" name="button" type="submit" value="del" />
+						<input type="hidden" name="title" th:value="${counter.title}" /> 
 
+						<input class="button" name="button" type="submit" value="-" th:id="'minus'+${counter.id}" />
+
+							<span th:text="${counter.id}" class="id"></span> 
+							<span th:text="${counter.title}" type="hidden"></span>
+							<span th:text="${counter.count}"></span>
+						
+						<input class="button" name="button" type="submit" value="+" th:id="'plus'+${counter.id}" /> 
+						<input class="button" name="button" type="submit" value="del" />
+						 
 					</form>
-				</li>
+ 				</li>
 			</ul>
 
 		</div>
 		<br />
+
+    <script th:inline="javascript">
+
+    function speak(text1, text2) {
+    	var msg = new SpeechSynthesisUtterance(); // Create a new instance of SpeechSynthesisUtterance.
+    	msg.text = text1 + text2; // Set the text.
+    	window.speechSynthesis.speak(msg); // Queue this utterance.
+    }
+    
+    
+    // Set up event listeners for when the plus or minus buttons are clicked.
+
+    /*<![CDATA[*/
+   		/*[# th:each="counter : ${counters}"]*/
+   		{
+	    	var plus = document.getElementById('plus'+/*[[${counter.id}]]*/);
+	    	plus.addEventListener('click', function(e) { speak( /*[[${counter.count + 1}]]*/, /*[[${counter.title}]]*/ ); } );
+	    	
+			var minus = document.getElementById('minus'+/*[[${counter.id}]]*/);
+			minus.addEventListener('click', function(e) { speak( /*[[${counter.count} - 1]]*/, /*[[${counter.title}]]*/); } );
+   		}	
+    	/*[/]*/
+	/*]]>*/
+    
+   	</script>
 
 		<form method="POST" action="/counter/create" class="form">
 			Title: <input type="text" placeholder="title" name="title"
@@ -79,24 +108,6 @@
 		</form>
 
 	</section>
-
-    <script th:inline="javascript">
- 	var button = document.getElementById('speak');
-    var speechMsgInput = document.getElementById('speech-msg');
-    function speak(text) {
-    	// Create a new instance of SpeechSynthesisUtterance.
-    	var msg = new SpeechSynthesisUtterance();
-    	// Set the text.
-    	msg.text = text;
-    	// Queue this utterance.
-    	window.speechSynthesis.speak(msg);
-    }
-    
-    // Set up an event listener for when the 'speak' button is clicked.
-    button.addEventListener('click',
-    		function(e) { if (speechMsgInput.value.length > 0) { speak(speechMsgInput.value); }}
-    );
-	</script>
 	
 </body>
 </html>

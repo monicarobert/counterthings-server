@@ -22,6 +22,14 @@ public class UserRestController {
 	@Autowired
 	private UserService userService;
 	
+	// Show all users (GET in /users)
+	@RequestMapping(method = RequestMethod.GET)
+	public Collection<User> getAllUsers() {
+		//System.out.println("getAllUsers");
+		return userService.getAllUsers();
+	}
+
+	// Generate some users (GET in /generate, produces json for success)
 	@RequestMapping(value = "/generate", method = RequestMethod.GET, produces = "application/json")
 	public String generateUser() {
 		User t1 = new User("R", "Monica", "monicar");
@@ -34,12 +42,5 @@ public class UserRestController {
 		userService.insertUser(t3);
 		userService.insertUser(t4);
 		return "{\"success\": true}";
-	}
-
-	// GET sur /users
-	@RequestMapping(method = RequestMethod.GET)
-	public Collection<User> getAllUsers() {
-		//System.out.println("getAllUsers");
-		return userService.getAllUsers();
 	}
 }

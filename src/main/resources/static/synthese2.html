@@ -14,14 +14,14 @@
 	    <p>Un deuxième <strong>paragraphe</strong></p>
 	
 	    <button id="speak">Speak</button>
-	    <input type="text" name="speech-msg" id="speech-msg" x-webkit-speech>
+	    <input type="text" name="speech-msg-name" id="speech-msg" x-webkit-speech>
 	</body>
 	
     <script th:inline="javascript">
 
  	var button = document.getElementById('speak');
     var speechMsgInput = document.getElementById('speech-msg');
-    
+
     function speak(text) {
     	// Create a new instance of SpeechSynthesisUtterance.
     	var msg = new SpeechSynthesisUtterance();

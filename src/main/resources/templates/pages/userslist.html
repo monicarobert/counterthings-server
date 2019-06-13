@@ -32,7 +32,7 @@
 					<td th:text="${user.password}"/>
 						
 					<td>
-						<form method="POST" action="/user/delete" class="form">
+						<form method="POST" action="/user/deleteuser" class="form">
 						<input type="hidden" name="username" th:value="${user.username}" />
 						<input class="button" name="button" type="submit" value="delete" />		
 						</form>
@@ -43,11 +43,36 @@
 						<input type="hidden" name="username" th:value="${user.username}" />
 						<input class="button" name="button" type="submit" value="counters" />		
 						</form>
-					</td>	
-					
+					</td>						
  				</tr>
 			</table>
+		</div>
+		
+	<div class="liste">
+	
+		<div> 
+	  		   <h2>Counters for users</span></h2>
+	  	</div>
+	
+			<ul th:if="${ccounters.empty}">
+				<li colspan="7">No counters</li>
+			</ul>
 			
+				<table th:unless="${ccounters.empty}" frame="box">
+				<tr>
+					<th> Id </th>
+					<th> Title </th>
+					<th> Count </th>
+				</tr>
+				
+				<tr th:each="counter : ${ccounters}" class="count" th:styleappend="'background-color:'+ ${counter.color}+';'">
+					<td th:text="${counter.id}"/>
+					<td th:text="${counter.title}" />
+					<td th:text="${counter.count}"/>
+					<td th:text="${counter.color}"/>
+ 				</tr>
+			</table>
+					
  	</div>
-	<br/></body>
+	</body>
 </html>
