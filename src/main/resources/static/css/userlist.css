@@ -1,0 +1,19 @@
+*{
+	text-align:center;
+	font-family:"Courier New", Courier, monospace;
+
+}
+.navbar-brand{
+	color:#FFFFFF;
+	font-family:"Courier New", Courier, monospace;
+	font-size: 30px;
+}
+.container{
+	justify-content:center;
+	flex-direction:column;
+}
+
+.button{
+	border-radius: 3em;
+	border:0.5px solid #ccc;	
+}

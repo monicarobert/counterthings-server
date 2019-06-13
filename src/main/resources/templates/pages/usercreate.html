@@ -2,68 +2,51 @@
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
   	<meta charset="UTF-8" />
+  	
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link href="/css/usercreate.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  	
     <title>Counters</title>
-    <style>
-      html, body {
-        padding: 0;
-        margin: 0;
-      }
-      .app {
-        width: 80%;
-        min-height: 100vh;
-        margin: auto;
 
-        background: #ddd;
-        padding: 20px;
-      }
-      h1 {
-        color: cornflowerblue;
-        font-size: 45px;
-        font-family: "Droid Sans Mono";
-        text-align: center;
-      }
-      img {
-        margin: auto;
-        display: block;
-      }
-      footer {
-        margin-top: 30px;
-      }
-      label {
-        display: block;
-      }
-
-      form  div {
-        margin-bottom: 15px;
-      }
-
-    </style>
   </head>
   <body>
-    <section class="app">
-     <h2>Create a user</h2>
+  
+    <section class="container-fluid">
+     <h1 class="title">Create a user</h1>
+     <br/>
 
-        <form method="POST" action="/user/create" >
+        <form method="POST" action="/user/create" class="form-group create">
           <div>
             <label>Last name</label>
-            <input type="text" name="nom" />
+            <input type="text" name="nom"class="form-control" />
+            <br/>
           </div>
            <div>
             <label>First name</label>
-            <input type="text" name="prenom" />
+            <input type="text" name="prenom" class="form-control"/>
+            <br/>
           </div>
            <div>
-            <label>Username(user@adress)</label>
-            <input type="email" name="username" />
+            <label for="exampleInputEmail1">Username (user@adress)</label>
+            <input type="email" name="username" class="form-control" id="exampleInputEmail1"  placeholder="Enter email" />
+            <br/>
           </div>
           <div>
-            <label>Password</label>
-            <input type="password" name="password" />
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password"/>
+            <br/>
           </div>
           <div>
-            <input type="submit" value="Enter" />
+            <input type="submit" value="Enter" class="btn btn-light enterButton"/>
           </div>
         </form>
       </section>
+      
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
     </body>
 </html>

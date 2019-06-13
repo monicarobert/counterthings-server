@@ -1,0 +1,22 @@
+*{
+	background-color: #3A5A98;
+	color:white;	
+	font-size:15px;
+	font-family:"Courier New", Courier, monospace;
+}
+.title{
+	margin-top:20px;
+	font-size: 45px;
+	text-align: center;
+}
+
+.enterButton{
+	padding-top:20px;
+	margin-top:12px;
+	padding:6px 0 6px 0;
+	color:black;
+	box-shadow:1px 1px 3px #999;
+	border-radius:3em;
+	width:140px;
+}
+
