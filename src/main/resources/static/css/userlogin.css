@@ -10,7 +10,9 @@ body{
 	font-size:14px;
 }
 .img-logo{
-	margin-left:-50px;
+	max-width:100%;
+	width:300px;
+	padding-top:30px;
 }
 .createButton{
 	padding:6px 0 6px 0;
@@ -18,7 +20,7 @@ body{
 	width:190px;
 	border:1px solid #ccc;
 	box-shadow:1px 1px 3px #999;
-	margin-top:40px;
+	margin-top:60px;
 	float:left;
 }
 .submitButton{
