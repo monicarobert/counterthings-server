@@ -74,7 +74,16 @@ public class UserWebController
         session.setAttribute("USER", user);
         //session.setAttribute("USERSERVICE", userService);
     }
-
+	
+	// USER LOGOUT SERVLET
+		@RequestMapping(method = { RequestMethod.GET, RequestMethod.POST }, value="/logout" )
+		public String logoutUser(HttpServletRequest request, HttpServletResponse response, RedirectAttributes redirAttrs, Model model ) throws Exception
+		{
+			request.getSession().invalidate();
+			User user = null;
+			return "redirect:/";
+		}
+						
 	
 	// USER CREATION FORM
 	@GetMapping("/usercreation")
@@ -123,7 +132,6 @@ public class UserWebController
    			userService.removeUser(user);
    			break;
    		}
-   		/// userService.removeUserByUsername(username);
     	return "redirect:/user/adminusers";
 	} 
 
@@ -147,12 +155,12 @@ public class UserWebController
 	}
 	
 	//SHOW ALL COUNTERS
-	@RequestMapping(method = { RequestMethod.GET, RequestMethod.POST }, value="/showallcounters" )
+	/* @RequestMapping(method = { RequestMethod.GET, RequestMethod.POST }, value="/showallcounters" )
 	public String showAllCounters(HttpServletRequest request, HttpServletResponse response, RedirectAttributes redirAttrs, Model model) throws Exception
 	{
 		return "redirect:/counter/allcounterslist";
 
-	}	
+	} */	
 	/*
  	public String failedLogin(HttpServletRequest request, HttpServletResponse response) throws IOException
  	{

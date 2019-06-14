@@ -35,6 +35,8 @@ public class CounterWebController {
 	
 	@Autowired
 	private CounterService counterService;
+	//@Autowired
+	//private UserService userService;
 	private User user;
 
 	/*
