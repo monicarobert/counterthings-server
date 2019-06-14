@@ -2,31 +2,37 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8" />
-		
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link href="/css/allcounterslist.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Counters</title>
 </head>
 <body>
   
-	<h1>Counters</h1>
+	<h1>COUNTERS</h1>
 	<br />
 
-	<div class="liste">
+	<div class="container">
+	<br/>
 	
 		<div> 
-	  		   <h2><span th:if="${user == null}" th:text="'Counters for users '"></span></h2>
-	  		   <h2><span th:if="${user != null}" th:text="'Counters for user '+ ${user.prenom} + ' ' + ${user.nom} + ' ' + ${user.username}"></span></h2>
+	  		   <h3><span th:if="${user == null}" th:text="'Counters for users '"></span></h3>
+	  		   <h3><span th:if="${user != null}" th:text="'Counters for user: '+ ${user.prenom} + ' ' + ${user.nom} + ' ' + ${user.username}"></span></h3>
 	  	</div>
-	
+		<br/>
+		
 			<ul th:if="${ccounters.empty}">
-				<li colspan="7">No counters</li>
+				<li colspan="7" class="li">No counters</li>
 			</ul>
 			
 
-				<table th:unless="${ccounters.empty}" frame="box">
+				<table th:unless="${ccounters.empty}" frame="box" class="table-responsive{-sm|-md|-lg|-xl} table-striped table-counters">
 				<tr>
 					<th> Id </th>
 					<th> Title </th>
 					<th> Count </th>
+					<th> Color </th>
 				</tr>
 			
 				<tr th:each="counter : ${ccounters}" class="count" th:styleappend= "'background-color : ' + ${counter.color}+';'">
@@ -39,6 +45,10 @@
 			
  	</div>
 	<br/>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
