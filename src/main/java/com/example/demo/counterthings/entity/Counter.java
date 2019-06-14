@@ -15,6 +15,10 @@ import javax.persistence.ManyToOne;
 		private String title;
 	    private int count;
 	    private String color = "#FBD75B";
+	    @ManyToOne
+	    //(cascade = CascadeType.PERSIST)
+	    //(cascade = CascadeType.ALL)
+	    private User user;
 	    
 	    public Counter(Long id, String title, String color) {
 			super();
@@ -76,9 +80,6 @@ import javax.persistence.ManyToOne;
 			this.color = color;
 		}
 
-		@ManyToOne
-	    //(cascade = CascadeType.ALL)
-	    private User user;
 
 		public User getUser() {
 			return user;

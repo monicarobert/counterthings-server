@@ -84,6 +84,15 @@ public class User {
 	     return "User{" + "nom=" + nom + ", prenom=" + prenom + ", username=" + username + ", password=" + password + '}';
 	 }
 
+	public String getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 		/*public List<Counter> getLcounters() {
 			return lcounters;
 		}
