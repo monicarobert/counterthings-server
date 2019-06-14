@@ -6,13 +6,11 @@ body{
 
 }
 .container{
-	margin-top:80px;
-	padding-top:60px;
+	margin-top:40px;
 	font-size:14px;
 }
-.title{
-	text-align:center;
-	font-size:70px;
+.img-logo{
+	margin-left:-50px;
 }
 .createButton{
 	padding:6px 0 6px 0;

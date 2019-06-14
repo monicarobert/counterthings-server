@@ -1,11 +1,16 @@
-*{
+body{
 	text-align:center;
 	font-family:"Courier New", Courier, monospace;
+	background-color: #3A5A98;
+	color:white;
 }
-.navbar-brand{
+.navbar{
 	color:#FFFFFF;
 	font-family:"Courier New", Courier, monospace;
-	font-size: 30px;
+	font-size:25px;
+}
+.nav-title{
+	font-size:30px;
 }
 .container{
 	justify-content:center;
@@ -19,4 +24,6 @@
 .table-user, .table-counters{
 	width:50%;
 	margin:auto;
+	background:white;
+	color:black;
 }

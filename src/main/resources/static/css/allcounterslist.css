@@ -1,7 +1,8 @@
-*{
+body{
 	text-align:center;
 	font-family:"Courier New", Courier, monospace;
-	
+	background-color: #3A5A98;
+	color:white;
 }
 .container{
 	justify-content:center;
@@ -10,6 +11,8 @@
 .table-counters{
 	width:50%;
 	margin:auto;
+	background:white;
+	color:black;
 }
 .li{
 	list-style-type:none;

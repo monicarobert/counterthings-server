@@ -5,18 +5,19 @@
 	font-family:"Courier New", Courier, monospace;
 }
 .title{
-	margin-top:20px;
 	font-size: 45px;
 	text-align: center;
 }
 
 .enterButton{
 	padding-top:20px;
-	margin-top:12px;
+	margin-top:5px;
 	padding:6px 0 6px 0;
 	color:black;
 	box-shadow:1px 1px 3px #999;
 	border-radius:3em;
 	width:140px;
 }
-
+.img-logo{
+	margin-left: 30px;
+}
