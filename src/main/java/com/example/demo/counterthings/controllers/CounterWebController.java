@@ -69,11 +69,20 @@ public class CounterWebController {
 			RequestMethod.POST
 	},	
 			value="/getcountersbyuser" )
-	public String getCountersByUser(HttpServletRequest request, Model model, RedirectAttributes redirAttrs, User user) {
-		redirAttrs.getFlashAttributes();
-		model.addAttribute("ccounters", counterService.getCountersForUser(user));
-		model.addAttribute("user", user);
-		return "pages/allcounterslist";
+	public String getCountersByUser(HttpServletRequest request, Model model, RedirectAttributes redirAttrs, User user) 
+	{
+		try {
+			if (user!=null ) {
+				redirAttrs.getFlashAttributes();
+				model.addAttribute("ccounters", counterService.getCountersForUser(user));
+				model.addAttribute("user", user);
+				return "pages/allcounterslist";
+			}
+			//return "redirect:/user/details";
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "redirect:/user/adminusers";
 	}	
 	
 	// GET ALL COUNTERS
