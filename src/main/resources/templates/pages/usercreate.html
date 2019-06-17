@@ -20,29 +20,30 @@
      <h1 class="title">CREATE A USER</h1>
      <br/>
 
-        <form method="POST" action="/user/create" class="form-group create">
+        <form method="POST" action="/user/create" class="form-group create form-create">
           <br/>
           <div>
             <label>Last name</label>
-            <input type="text" name="nom"class="form-control" />
+            <input type="text" name="nom"class="form-control-sm" />
             <br/>
           </div>
            <div>
             <label>First name</label>
-            <input type="text" name="prenom" class="form-control"/>
+            <input type="text" name="prenom" class="form-control-sm"/>
             <br/>
           </div>
            <div>
-            <label for="exampleInputEmail1">Username (user@adress)</label>
-            <input type="email" name="username" class="form-control" id="exampleInputEmail1"  placeholder="Enter email" />
+            <label for="exampleInputEmail1">E-mail</label>
+            <input type="email" name="username" class="form-control-sm" id="exampleInputEmail1"  placeholder="Enter email" />
             <br/>
           </div>
           <div>
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password"/>
+            <label for="exampleInputPassword1" class="password">Password</label>
+            <input type="password" name="password" class="form-control-sm" id="exampleInputPassword1" placeholder="Password"/>
             <br/>
           </div>
           <div>
+          <br/>
             <input type="submit" value="Enter" class="btn btn-light enterButton"/>
           </div>
         </form>

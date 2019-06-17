@@ -5,9 +5,14 @@ body{
 	color:white;	
 }
 .navbar{
-	color:#FFFFFF;
 	font-family:"Courier New", Courier, monospace;
 	font-size:25px;
+}
+.navbar-back{
+	background-color:#343940;
+}
+.text{
+		color:#FFFFFF;
 }
 .nav-title{
 	font-size:30px;

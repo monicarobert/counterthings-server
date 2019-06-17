@@ -7,15 +7,11 @@
 .title{
 	font-size: 45px;
 	text-align: center;
+	padding-top:20px;
+	padding-bottom:50px;
 }
 .enterButton{
-	padding-top:20px;
-	margin-top:5px;
-	padding:6px 0 6px 0;
-	color:black;
-	box-shadow:1px 1px 3px #999;
-	border-radius:3em;
-	width:140px;
+	margin-top:15px;
 }
 .img-logo{
 	max-width:100%;
@@ -24,4 +20,9 @@
 	margin-left: auto;
     margin-right: auto;
     width: 6em
+}
+.form-create{
+	justify-content:center;
+	max-width:100%;
+	margin-left:40%;
 }
